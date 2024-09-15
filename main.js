@@ -1,16 +1,17 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    const button = document.getElementById("playNoteButton1");
+    const buttons = document.getElementsByClassName("playButton");
 
     const actionOnMouseDown = function() {
-        button.style.backgroundColor = 'yellow';
+        this.style.backgroundColor = 'yellow';
     };
 
     const actionOnMouseUp = function() {
-        button.style.backgroundColor = '';
+        this.style.backgroundColor = '';
     };
 
-    button.addEventListener('mousedown', actionOnMouseDown);
-    button.addEventListener('mouseup', actionOnMouseUp);
-    button.addEventListener('mouseleave', actionOnMouseUp); // To handle the case when the mouse leaves the button while pressed
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('mousedown', actionOnMouseDown);
+        buttons[i].addEventListener('mouseup', actionOnMouseUp);
+        buttons[i].addEventListener('mouseleave', actionOnMouseUp); // To handle the case when the mouse leaves the button while pressed
+    }
 });
-
